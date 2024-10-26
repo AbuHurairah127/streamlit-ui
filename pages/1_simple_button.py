@@ -9,8 +9,11 @@ st.write(unsustained_output)
 
 # Set session state key only when button is clicked
 if st.button("Check output 2 of sustained button"):
-    st.session_state["button1"] = "Button 2 clicked!"
-    st.write(st.session_state["button1"])
+    st.session_state = "Button 2 clicked!"
+    # st.write(st.session_state["button1"])
+if st.button("Check output 3 of sustained button"):
+    st.session_state = False
+    # st.write(st.session_state["button1"])
 
 st.button("Reset", type="primary")
 
