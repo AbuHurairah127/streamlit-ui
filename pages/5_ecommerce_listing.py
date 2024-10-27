@@ -3,9 +3,9 @@ import requests
 
 # Set up the Streamlit page
 st.button("Reset")
-st.title("Product Data from DummyJSON API")
+st.title("*Product* Data from DummyJSON API")
 st.write("This app fetches and displays product data from the DummyJSON API.")
-
+st.page_link("simple.py",label="Too")
 # Define the API URL
 url = "https://dummyjson.com/products"
 
