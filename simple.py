@@ -11,6 +11,19 @@
 # -----------------------------------
 # ## Example 2
 import streamlit as st
+import pandas as pd
+import numpy as np
+
+df = pd.DataFrame(
+    np.random.randn(10, 5), columns=(["Width","Height","Depth","Weight","radius"])
+)
+
+st.table(df)
+
+
+
+
+
 
 # Custom CSS for styling
 st.markdown("""
@@ -25,8 +38,8 @@ st.markdown("""
 # Content
 st.title("Styled Streamlit App")
 st.write("This text should appear in blue with a red background.")
-st.text_input("Favorite movie?")
-
+x=st.text_input("Favorite movie?")
+st.write(x)
 text_contents = '''This is some text'''
 st.download_button("Download some text", text_contents)
 
@@ -37,12 +50,29 @@ with open("pic.png", "rb") as file:
     btn = st.download_button(
         label="Download image",
         data=file,
-        file_name="pic.png",
+        file_name="AbuHurairah.png",
         mime="image/png",
     )
-    import streamlit as st
 
 sentiment_mapping = ["one", "two", "three", "four", "five"]
-selected = st.feedback("faces")
+selected = st.feedback("stars")
 if selected is not None:
     st.markdown(f"You selected {sentiment_mapping[selected]} star(s).")
+
+# st.feedback("faces")
+
+
+a=st.number_input("Enter first number:")
+st.session_state["firstNo"] = a
+b=st.number_input("Enter 2nd number:")
+st.session_state["scndNo"] = b
+
+if st.button("Add two no."):
+    st.session_state["Ans"] = a+b
+    st.write(st.session_state.Ans)
+if st.button("Subtract two no."):
+    st.session_state["Ans"] = a-b
+    st.write(st.session_state.Ans)
+if st.button("Multiply two no."):
+    st.session_state["Ans"] = a*b
+    st.write(st.session_state.Ans)
